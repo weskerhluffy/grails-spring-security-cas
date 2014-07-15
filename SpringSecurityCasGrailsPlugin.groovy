@@ -152,6 +152,8 @@ class SpringSecurityCasGrailsPlugin {
 			proxyReceptorUrl = conf.cas.proxyReceptorUrl
 		}
 
+		//FIXME: Pasar 3er parametro 
+		//XXX: http://grails.1312388.n4.nabble.com/error-using-spring-security-cas-plugin-td4631318.html
 		casProxyRetriever(Cas20ProxyRetriever, conf.cas.serverUrlPrefix, conf.cas.serverUrlEncoding /*'UTF-8'*/)
 
 		casTicketValidator(Cas20ServiceTicketValidator, conf.cas.serverUrlPrefix) {

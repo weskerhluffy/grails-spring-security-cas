@@ -4,7 +4,7 @@ grails.project.docs.output.dir = 'docs/manual' // for backwards-compatibility, t
 grails.project.dependency.resolution = {
 
 	inherits 'global'
-	log 'warn'
+	log 'debug'
 
 	repositories {
 		grailsCentral()
@@ -18,25 +18,23 @@ grails.project.dependency.resolution = {
 
 		compile "org.springframework.security:spring-security-cas:$springSecurityVersion", {
 			excludes 'cas-client-core', 'commons-logging', 'ehcache', 'fest-assert', 'jcl-over-slf4j', 'junit',
-			         'logback-classic', 'mockito-core', 'spring-beans', 'spring-context', 'spring-core',
-			         'spring-security-core', 'spring-security-web', 'spring-test', 'spring-web', 'tomcat-servlet-api'
+					'logback-classic', 'mockito-core', 'spring-beans', 'spring-context', 'spring-core',
+					'spring-security-core', 'spring-security-web', 'spring-test', 'spring-web', 'tomcat-servlet-api'
 		}
 
-		compile 'org.jasig.cas.client:cas-client-core:3.2.1', {
+		compile 'org.jasig.cas.client:cas-client-core:3.3.1', {
 			excludes 'commons-codec', 'commons-logging', 'junit', 'log4j', 'opensaml', 'servlet-api',
-			         'spring-beans', 'spring-context', 'spring-core', 'spring-test', 'xmlsec'
+					'spring-beans', 'spring-context', 'spring-core', 'spring-test', 'xmlsec'
 		}
+		compile 'org.springframework:spring-aop:3.2.9.RELEASE'
+		compile 'org.springframework:spring-expression:3.2.9.RELEASE'
 	}
 
 	plugins {
-		compile ':spring-security-core:2.0-RC2'
+		compile ':spring-security-core:2.0-RC3'
 
-		compile ":hibernate:$grailsVersion", {
-			export = false
-		}
+		compile ":hibernate4:4.3.5.2", { export = false }
 
-		build ':release:2.2.1', ':rest-client-builder:1.0.3', {
-			export = false
-		}
+		build ':release:2.2.1', ':rest-client-builder:1.0.3', { export = false }
 	}
 }
